@@ -24,7 +24,7 @@ const Movies = () => {
     }
     if(!movies)
     {
-        return <p>Chargement...</p>
+        return <p>Chargement du contenu...</p>;
     }
     return ( 
 
