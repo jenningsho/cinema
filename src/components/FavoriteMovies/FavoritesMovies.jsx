@@ -1,14 +1,10 @@
-import { useEffect } from "react";
-import { useState } from "react"
-import { getTrendingMovies } from "../../services/api";
-import './MovieList.css';
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
 import AddFavorites from "../AddToFavorites/AddToFavorites";
 
-const Movies = () => {
-    const [ movies, setMovies] = useState([]);
-    const [ error, setError] = useState(null);
-    const [ favorites, setFavorites] = useState([]);
+const FavoritesMovies = () => {
+
+    const [favorites, setFavorites] = useState([]);
 
     // Ajouter un film en favoris ou supprimer
     const toggleFavouriteMovie = (movie) => {
@@ -27,40 +23,21 @@ const Movies = () => {
         }
     };
 
+
+
     useEffect( () => {
         const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
         setFavorites(storedFavorites);
-    }, [])
-
-    useEffect( () => {
-        if(favorites.length > 0) {
-            localStorage.setItem("favorites", JSON.stringify(favorites));
-        }
-    }, [favorites]);
-    
-    useEffect(() => {
-        getTrendingMovies()
-            .then( response => {
-                console.log(response.data);
-                setMovies(response.data.results); // on stock les films
-            })
-            .catch(err => {
-                setError(err.message); // stock l'erreur 
-            })
     }, []);
 
-    if(error){
-        return <div> Erreur: {error}</div>
-    }
-    if(!movies)
-    {
-        return <p>Chargement du contenu...</p>;
-    }
+    if(favorites.length === 0) return <div>Aucun film favori ajouté.</div>;
+
     return (
+
         <div className="movies-container">
             <h1>Films du moment</h1>
             <div className="movies-list">
-                {movies.map((movie) => {
+                {favorites.map((movie) => {
                     const isFavorite = favorites.some(
                         (fav) => fav.id === movie.id
                     );
@@ -84,7 +61,7 @@ const Movies = () => {
                 })}
             </div>
         </div>
-    );
+    )
 }
 
-export default Movies;
+export default FavoritesMovies;

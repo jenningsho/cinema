@@ -5,20 +5,22 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import Movies from './components/MovieList/MovieList';
 import { BrowserRouter, Route, Routes} from "react-router-dom";
 import MovieDetails from './components/MovieDetails/MovieDetails';
-
+import SearchBar from './components/SearchBar/SearchBar';
+import FavoritesMovies from './components/FavoriteMovies/FavoritesMovies';
 
 function App() {
 
   return (
     <div>
-      <Header/>    
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Movies/>}/>
-          <Route path="/movie/:id" element={<MovieDetails/>}/>
-          {/* <Route path="/favorite" element={<Favorites/>}/> */}
-        </Routes>
-      </BrowserRouter>
+        <BrowserRouter>
+          <Header/>    
+          <Routes>
+            <Route path="/" element={<Movies/>}/>
+            <Route path="/movie/:id" element={<MovieDetails/>}/>
+            <Route path="/search" element={<SearchBar/>}/>
+            <Route path="/favorite" element={<FavoritesMovies/>}/>
+          </Routes>
+        </BrowserRouter>
     </div>
   )
 }

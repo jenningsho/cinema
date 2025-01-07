@@ -33,14 +33,33 @@
     width: 200px;
     transition: transform 0.3s, box-shadow 0.3s;
     text-align: center;
+    position: relative;
 }
+
 
 /* Effet au survol de la carte */
 .movie-card:hover {
-    transform: translateY(-10px);
+    transform: scale(1.1);
+    cursor: pointer;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+.movie-card:hover .overlay{
+    opacity: 1;
+}
+
+.overlay{
+    color:red;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    transition: 0.5s ease;
+    opacity: 0;
+    bottom: 0;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+}
 /* Image de l'affiche du film */
 .movie-card img {
     width: 100%;
@@ -53,3 +72,5 @@
     font-size: 1.2rem;
     margin-top: 20px;
 }
+
+

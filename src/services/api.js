@@ -1,7 +1,6 @@
 import axios from "axios";
 
-
-// Instanciation de Axios avec l'api Tmdb
+// Instanciation de Axios
 const apiMovie = axios.create({
     baseURL: 'https://api.themoviedb.org/3/'
 })
@@ -9,7 +8,7 @@ const apiMovie = axios.create({
 // token d'authentification
 const token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0MTY0ZjIxNTNkMTE2MzdiYWI2MzQ3ZGM4ZTNhNjYyMiIsIm5iZiI6MTczNjE2OTI3OC41MjYsInN1YiI6IjY3N2JkNzNlY2Y0ZDU5Yzg0ZjcyNGE0YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.-URFvA5xRsjjHr_K7Wdd9P9xNSOm-TgTSvoV-MATkZU";
 
-// intercepteur de la erquete pour ajouter le token dans le headers
+// intercepteur de la requete pour ajouter le token dans le headers
 apiMovie.interceptors.request.use( req => {
     req.headers['Authorization'] = `Bearer ${token}`;
     
@@ -26,6 +25,9 @@ export const getMovieDetails = (movieId) => {
     return apiMovie.get(`movie/${movieId}`); // Effectue une requête GET à l'endpoint "movie/:id"
 };
 
-// Récupération des favories
+// recherche film par mot clé
+export const searchMovies = (query) =>{
+    return apiMovie.get(`search/movie?query=${query}`)
+}
 
 export default apiMovie;

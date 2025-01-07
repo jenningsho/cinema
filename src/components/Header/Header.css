@@ -1,8 +1,9 @@
 nav a{
     text-decoration: none; /* Enlève le soulignement */
-    color:white;
+    color:#4aa770 !important;
+    
 }
 
 nav a:hover{
-    color: green;
+    color: #4aa770;
 }

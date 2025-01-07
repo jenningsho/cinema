@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom"
 import { getMovieDetails } from "../../services/api";
+import "./MovieDetails.css";
 
 const MovieDetails = () => {
     const { id } = useParams(); // récuperation du parametre id de l'url
@@ -26,13 +27,30 @@ const MovieDetails = () => {
     
     return (
         <div className="movie-details">
-            <h1>{movie.title}</h1>
-            <p>{movie.overview}</p>
             <img
                 src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} // Affiche l'affiche du film
                 alt={movie.title}
                 width={300}
             />
+            <div className="movie-detail">
+                <h1>{movie.title}</h1>
+                <ol>
+                    <li>
+                        <p>Release Date:</p>
+                        <p>{movie.release_date}</p>
+                    </li>
+                    <li>
+                        <p>Rating:</p>
+                        <p>{movie.vote_average}</p>
+                    </li>
+                </ol>
+                <ol className="movie-overview">
+                    <li>
+                        <p>Overview:</p>
+                        <p>{movie.overview}</p>
+                    </li>
+                </ol>
+            </div>
         </div>
     )
 }

@@ -1,0 +1,36 @@
+.movie-details{
+    display:flex;
+    margin: 30px 20px;
+}
+
+.movie-details img{
+    margin: 0 20px;
+}
+
+ol{
+    display: flex;
+}
+
+li{
+    display:flex;
+    list-style-type: none;
+
+}
+
+ol li p{
+    margin: 0 5px;
+    
+}
+h1, ol li p:first-child{
+    color: #4aa770;
+    font-weight: bolder;
+}
+
+p{
+    color:white;
+}
+
+.movie-overview{
+    display: flex;
+    align-items: start;
+}
