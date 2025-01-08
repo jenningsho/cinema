@@ -30,7 +30,7 @@ const FavoritesMovies = () => {
         setFavorites(storedFavorites);
     }, []);
 
-    if(favorites.length === 0) return <div>Aucun film favori ajouté.</div>;
+    if(favorites.length === 0) return <div className="text-center text-white fs-2">Aucun film favori ajouté.</div>;
 
     return (
 
