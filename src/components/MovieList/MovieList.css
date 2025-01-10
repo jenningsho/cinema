@@ -1,6 +1,5 @@
 /* Style de base pour le conteneur principal */
 .movies-container {
-    background-color: rgb(76, 81, 88);
     margin: 0 auto;
     padding: 20px;
     font-family: Arial, sans-serif;
@@ -22,6 +21,7 @@
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
+    background-color: rgb(76, 81, 88);
 }
 
 /* Carte individuelle pour chaque film */

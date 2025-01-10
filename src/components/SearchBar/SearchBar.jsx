@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { searchMovies } from '../../services/api';
 import '../MovieList/MovieList.css';
+import "./SearchBar.css"
 
 const SearchBar = () => {
     const [searchParams] = useSearchParams(); // Récupère les paramètres de recherche
