@@ -1,3 +1,10 @@
+Création d’une application de cinéma : 
+page d’accueil avec les films du moment
+recherche et détails de films, gestion des favoris
+technologies: React, API TMDB
+
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
